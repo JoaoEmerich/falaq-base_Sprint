@@ -20,13 +20,17 @@ class EventoController extends Controller
     {
         $evento = Evento::findOrFail($id);
 
+    // Adicionado o filtro de moderação (is_public)
         $perguntas = Pergunta::where('evento_id', $id)
+            ->where('is_public', true)
             ->with('user')
             ->latest()
             ->paginate(10);
 
         return view('eventos.show', compact('evento', 'perguntas'));
-    }
+}
+
+
 
 
  
