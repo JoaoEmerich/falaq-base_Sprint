@@ -18,7 +18,7 @@ class EventoController extends Controller
 
     public function show($id)
     {
-        $evento = Evento::findOrFail($id);
+        $evento = Evento::find($id);
 
         $perguntas = Pergunta::all();
 
