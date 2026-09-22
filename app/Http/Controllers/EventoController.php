@@ -1,4 +1,4 @@
-<?php
+S<?php
 
 namespace App\Http\Controllers;
 
@@ -18,12 +18,14 @@ class EventoController extends Controller
 
     public function show($id)
     {
-        $evento = Evento::find($id);
-
-        $perguntas = Pergunta::all();
+        $evento = Evento::findOrFail($id);
+        $perguntas = Pergunta::where('evento_id', $id)
+            ->latest()
+            ->paginate(10);
 
         return view('eventos.show', compact('evento', 'perguntas'));
     }
+
 
  
     public function storePergunta(StorePerguntaRequest $request, $id)
