@@ -23,12 +23,11 @@
                 🚀 FalaQ-Eu_T_3scuto <span class="badge bg-secondary fs-6">MVP</span>
             </a>
             @auth
-            <span>Olá, {{ Auth::user()->name }}</span>
-            <form method="post" action="{{ route('auth.logout') }}">
-                @csrf
-                <button type="submit" class="bg-gray-800 text-gray-200 px-4 py-2 rounded-md hover:bg-blue-700">Logout</button>
-            </form>
-                
+                <span>Olá, {{ Auth::user()->name }}</span>
+                <form method="post" action="{{ route('auth.logout') }}">
+                    @csrf
+                    <button type="submit" class="bg-gray-800 text-gray-200 px-4 py-2 rounded-md hover:bg-blue-700">Logout</button>
+                </form>
             @endauth
             @guest
                 <a href="{{ route('login.create') }}">Login</a>

@@ -22,7 +22,7 @@ class LoginController extends Controller
             return redirect()->route('eventos.index', ['intended' => true]);
         }
 
-        return back()->withErrors(['loginError' => 'Nome ou senha estão errados']);
+        return back()->withErrors(['loginError' => 'Nome ou senha estão errados'])->withInput(['name']);
     }
 
     public function logout(Request $request) {
