@@ -29,17 +29,11 @@
                     <button type="submit" class="bg-gray-800 text-gray-200 px-4 py-2 rounded-md hover:bg-blue-700">Logout</button>
                 </form>
             @endauth
-            @yield('navbar_item')
-            @auth
-            <p>
-                Olá, {{ Auth::user()->name }}
-            </p>
-            @endauth
             @guest          
-                <a class="navbar-brand" href="{{ route('login') }}">
+                <a class="navbar-brand" href="{{ route('login.create') }}">
                     Login
                 </a>
-                <a class="navbar-brand" href="{{ route('register') }}">
+                <a class="navbar-brand" href="{{ route('register.create') }}">
                     Registro
                 </a>
             @endguest

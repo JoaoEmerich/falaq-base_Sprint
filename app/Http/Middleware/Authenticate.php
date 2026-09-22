@@ -17,6 +17,7 @@ class Authenticate
     public function handle(Request $request, Closure $next): Response
     {
         // Verifica se o usuário NÃO está autenticado
+        
         if (!Auth::check()) {
             // Se for uma requisição via API/JSON
             if ($request->expectsJson()) {

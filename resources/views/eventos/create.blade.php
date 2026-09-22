@@ -31,11 +31,6 @@
                     <input name="data_evento" id="data_evento" rows="4"  type="date"
                               class="form-control bg-dark text-white border-secondary"></input>
 
-                    @error('data_evento')
-                        <div class="invalid-feedback fw-bold">
-                            {{ $message }}
-                        </div>
-                    @enderror
                 </div>
                 <button type="submit" class="btn btn-primary w-100 fw-bold">Criar Evento</button>
             </form>
