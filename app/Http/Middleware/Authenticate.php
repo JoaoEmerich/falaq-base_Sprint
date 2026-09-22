@@ -11,13 +11,10 @@ class Authenticate
 {
     /**
      * Handle an incoming request.
-     *
-     * @param  Closure(Request): (Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
     {
         // Verifica se o usuário NÃO está autenticado
-        
         if (!Auth::check()) {
             // Se for uma requisição via API/JSON
             if ($request->expectsJson()) {
