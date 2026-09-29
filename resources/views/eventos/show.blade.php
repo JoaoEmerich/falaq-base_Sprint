@@ -43,10 +43,12 @@
                     Enviado por: <strong>{{ $pergunta->user->name ?? 'Anônimo' }}</strong>
                 </small>
                 
-                <p class="fs-5 mb-2 text-white">{{ $pergunta->texto }}</p>
-                ...        
-                    <div class="d-flex justify-content-between align-items-center text-secondary small">
-                        <span>Status: <span class="badge bg-success">{{ $pergunta->status }}</span></span>
+                    public function delete(User $user, Pergunta $pergunta): bool
+    {
+        // Libera se for o dono da pergunta OU o dono do evento associado
+        return $user->id === $pergunta->user_id || $user->id === $pergunta->evento->user_id;
+    }
+
                         <span>{{ $pergunta->created_at->format('d/m/Y H:i') }}</span>
                     </div>
                 </div>
